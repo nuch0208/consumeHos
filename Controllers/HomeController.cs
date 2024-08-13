@@ -61,5 +61,35 @@ public class HomeController : Controller
             return View(hos);
         }
     }
+
+    public ActionResult GetPatient()
+    {
+        IEnumerable<Patient> patient = null;
+
+        using(var client = new HttpClient()) 
+        {
+            client.BaseAddress = new Uri("http://172.16.200.202:1380");
+
+            var responseTask = client.GetAsync("/api/Hos/getHos?paraHN=3");
+            responseTask.Wait();
+
+            var result = responseTask.Result;
+
+            if(result.IsSuccessStatusCode)
+            {
+                var readTask = result.Content.ReadAsAsync<IList<Patient>>();
+                readTask.Wait();
+
+                patient = readTask.Result;
+            }
+            else
+            {
+                patient = Enumerable.Empty<Patient>();
+                ModelState.AddModelError(string.Empty, "Server error try after some time.");
+            }
+            return View(patient);
+        }
+    }
+
     
 }

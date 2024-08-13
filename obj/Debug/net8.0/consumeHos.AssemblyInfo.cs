@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("consumeHos")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c6d45d6541c764086c64ffc4a8065f1b4d91534c")]
 [assembly: System.Reflection.AssemblyProductAttribute("consumeHos")]
 [assembly: System.Reflection.AssemblyTitleAttribute("consumeHos")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

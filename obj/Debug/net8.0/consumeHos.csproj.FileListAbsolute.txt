@@ -27,9 +27,10 @@ D:\consumeHos\obj\Debug\net8.0\staticwebassets.pack.json
 D:\consumeHos\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 D:\consumeHos\obj\Debug\net8.0\scopedcss\bundle\consumeHos.styles.css
 D:\consumeHos\obj\Debug\net8.0\scopedcss\projectbundle\consumeHos.bundle.scp.css
-D:\consumeHos\obj\Debug\net8.0\consumeHos.csproj.Up2Date
 D:\consumeHos\obj\Debug\net8.0\consumeHos.dll
 D:\consumeHos\obj\Debug\net8.0\refint\consumeHos.dll
 D:\consumeHos\obj\Debug\net8.0\consumeHos.pdb
 D:\consumeHos\obj\Debug\net8.0\consumeHos.genruntimeconfig.cache
 D:\consumeHos\obj\Debug\net8.0\ref\consumeHos.dll
+D:\consumeHos\obj\Debug\net8.0\consumeHos.sourcelink.json
+D:\consumeHos\obj\Debug\net8.0\consumeHos.csproj.CopyComplete
