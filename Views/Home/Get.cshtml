@@ -1,0 +1,29 @@
+@model IEnumerable<consumeHos.Models.HosViewModel>
+
+@{
+    ViewBag.Title = "Get ward";
+}
+
+<h2>List of ward</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ward1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ward1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+    </tr>
+}
+</table>
