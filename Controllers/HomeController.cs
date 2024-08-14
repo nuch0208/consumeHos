@@ -5,16 +5,20 @@ using System.Net.Http;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace consumeHos.Controllers;
 
 public class HomeController : Controller
 {
+    Uri DatabaseAddress = new Uri("http://172.16.200.202:9810");
     private readonly ILogger<HomeController> _logger;
 
     public HomeController(ILogger<HomeController> logger)
     {
         _logger = logger;
+
     }
 
     public IActionResult Index()
@@ -65,12 +69,43 @@ public class HomeController : Controller
     public ActionResult GetPatient()
     {
         IEnumerable<Patient> patient = null;
+        string number = "2000";
 
         using(var client = new HttpClient()) 
         {
             client.BaseAddress = new Uri("http://172.16.200.202:1380");
 
-            var responseTask = client.GetAsync("/api/Hos/getHos?paraHN=3");
+            var responseTask = client.GetAsync($"/api/Hos/getHos?paraHN={number}");
+            responseTask.Wait();
+
+            var result = responseTask.Result;
+
+            if(result.IsSuccessStatusCode)
+            {
+                var readTask = result.Content.ReadAsAsync<IList<Patient>>();
+                readTask.Wait();
+
+                patient = readTask.Result;
+            }
+            else
+            {
+                patient = Enumerable.Empty<Patient>();
+                ModelState.AddModelError(string.Empty, "Server error try after some time.");
+            }
+            return View(patient);
+        }
+    }
+
+     [HttpGet]
+     public ActionResult GetPatient2([FromQuery] string _para)
+    {
+        IEnumerable<Patient> patient = null;
+
+        using(var client = new HttpClient()) 
+        {
+            client.BaseAddress = new Uri("http://172.16.200.202:1380");
+
+            var responseTask = client.GetAsync($"/api/Hos/getHos?paraHN={_para}");
             responseTask.Wait();
 
             var result = responseTask.Result;
