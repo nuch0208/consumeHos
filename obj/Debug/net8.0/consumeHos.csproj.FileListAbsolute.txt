@@ -33,4 +33,4 @@ D:\consumeHos\obj\Debug\net8.0\consumeHos.pdb
 D:\consumeHos\obj\Debug\net8.0\consumeHos.genruntimeconfig.cache
 D:\consumeHos\obj\Debug\net8.0\ref\consumeHos.dll
 D:\consumeHos\obj\Debug\net8.0\consumeHos.sourcelink.json
-D:\consumeHos\obj\Debug\net8.0\consumeHos.csproj.CopyComplete
+D:\consumeHos\obj\Debug\net8.0\consumeHos.csproj.Up2Date

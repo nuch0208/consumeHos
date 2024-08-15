@@ -24,6 +24,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.Name)
         </td>
+        <td>
+            <a href="http://localhost:5262/Home/GetPatient2?_para=@Html.DisplayFor(modelItem => item.Ward1)">detail</a>
+        </td>
     </tr>
 }
 </table>

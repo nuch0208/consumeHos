@@ -91,5 +91,58 @@ public class HomeController : Controller
         }
     }
 
+     public ActionResult GetPatientById(string para)
+    {
+        Patient patient = new Patient();
+
+        using(var client = new HttpClient()) 
+        {
+            client.BaseAddress = new Uri("http://172.16.200.202:1380");
+
+            var responseTask = client.GetAsync($"/api/Hos/getHos/{para}");
+            responseTask.Wait();
+
+            var result = responseTask.Result;
+
+            if(result.IsSuccessStatusCode)
+            {
+                var readTask = result.Content.ReadAsAsync<Patient>();
+                readTask.Wait();
+
+                patient = readTask.Result;
+            }
+        
+            return View(patient);
+        }
+    }
     
+    [HttpGet]
+     public ActionResult GetPatient2([FromQuery] string _para)
+    {
+        IEnumerable<Patient> patient = null;
+
+        using(var client = new HttpClient()) 
+        {
+            client.BaseAddress = new Uri("http://172.16.200.202:1380");
+
+            var responseTask = client.GetAsync($"/api/Hos/getHos?paraHN={_para}");
+            responseTask.Wait();
+
+            var result = responseTask.Result;
+
+            if(result.IsSuccessStatusCode)
+            {
+                var readTask = result.Content.ReadAsAsync<IList<Patient>>();
+                readTask.Wait();
+
+                patient = readTask.Result;
+            }
+            else
+            {
+                patient = Enumerable.Empty<Patient>();
+                ModelState.AddModelError(string.Empty, "Server error try after some time.");
+            }
+            return View(patient);
+        }
+    }
 }
