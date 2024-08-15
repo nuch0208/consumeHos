@@ -73,9 +73,9 @@ public class HomeController : Controller
 
         using(var client = new HttpClient()) 
         {
-            client.BaseAddress = new Uri("http://172.16.200.202:1380");
+            client.BaseAddress = new Uri("http://172.16.200.202:9810");
 
-            var responseTask = client.GetAsync($"/api/Hos/getHos?paraHN={number}");
+            var responseTask = client.GetAsync($"/api/Hos/getost?_para={number}");
             responseTask.Wait();
 
             var result = responseTask.Result;
@@ -103,9 +103,9 @@ public class HomeController : Controller
 
         using(var client = new HttpClient()) 
         {
-            client.BaseAddress = new Uri("http://172.16.200.202:1380");
+            client.BaseAddress = new Uri("http://172.16.200.202:9810");
 
-            var responseTask = client.GetAsync($"/api/Hos/getHos?paraHN={_para}");
+            var responseTask = client.GetAsync($"/api/Hos/getost?_para={_para}");
             responseTask.Wait();
 
             var result = responseTask.Result;
